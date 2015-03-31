@@ -1,0 +1,288 @@
+Version 1.2.3 2014-11-08 by luispedro
+	* Export mean_filter at top level
+	* Fix to Zernike moments computation (reported by Sergey Demurin)
+	* Fix compilation in platforms without npy_float128 (patch by Gabi Davar)
+
+Version 1.2.2 2014-10-19 by luispedro
+	* Add minlength argument to labeled_sum
+	* Generalize regmax/regmin to work with floating point images
+	* Allow floating point inputs to ``cwatershed()``
+	* Correctly check for float16 & float128 inputs
+	* Make sobel into a pure function (i.e., do not normalize its input)
+	* Fix sobel filtering
+
+Version 1.2.1 2014-07-21 by luispedro
+	* Explicitly set numpy.include_dirs() in setup.py [patch by Andrew
+	Stromnov on github]
+
+Version 1.2 2014-07-17 by luispedro
+	* Export locmax|locmin at the mahotas namespace level
+	* Break away ellipse_axes from eccentricity code as it can be useful on
+	its own
+	* Add find() function
+	* Add mean_filter() function
+	* Fix cwatershed() overflow possibility
+	* Make labeled functions more flexible in accepting more types
+	* Fix crash in close_holes() with nD images (for n > 2)
+	* Remove matplotlibwrap
+	* Use standard setuptools for building (instead of numpy.distutils)
+	* Add overlay() function
+
+Version 1.1.1 2014-07-04 by luispedro
+	* Fix crash in close_holes() with nD images (for n > 2)
+
+Version 1.1.0 2014-02-12 by luispedro
+	* Better error checking
+	* Fix interpolation of integer images using order 1
+	* Add resize_to & resize_rgb_to
+	* Add coveralls coverage
+	* Fix SLIC superpixels connectivity
+	* Add remove_regions_where function
+	* Fix hard crash in convolution
+	* Fix axis handling in convolve1d
+	* Add normalization to moments calculation
+
+Version 1.0.4 2013-12-15 by luispedro
+	* Add mahotas.demos.load()
+	* Add stretch_rgb() function
+	* Add demos to mahotas namespace
+	* Fix SLIC superpixels
+
+Version 1.0.3 2013-10-06 by luispedro
+	* Add border & as_slice arguments to bbox()
+	* Better error message in gaussian_filter
+	* Allow as_rgb() to take integer arguments
+	* Extend distance() to n-dimensions
+	* Update to newer Numpy APIs (remove direct access to PyArray members)
+	* Add morph.disk() function
+	* Add perimeter() function
+	* Add eccentricity() function
+
+Version 1.0.2 2013-07-10 by luispedro
+	* Fix requirements filename
+
+Version 1.0.1 2013-07-09 by luispedro
+	* Add lbp_transform() function
+	* Add rgb2sepia function
+	* Add mahotas.demos.nuclear_image() function
+	* Work around matplotlib.imsave's implementation of greyscale
+	* Fix Haralick bug (report & patch by Tony S Yu)
+	* Add count_binary1s() function
+
+Version 1.0 2013-05-21 by luispedro
+	* Fix tests in Python 3
+	* Fix a few corner cases in texture analysis
+	* Integrate with travis
+	* Update citation (include DOI)
+
+Version 0.99 2013-05-04 by luispedro
+	* Make matplotlib a soft dependency
+	* Add demos.image_path() function
+	* Add citation() function
+
+Version 0.9.8 2013-04-22 by luispedro
+	* Use matplotlib as IO backend (fallback only)
+	* Compute dense SURF features
+	* Fix sobel edge filtering (post-processing)
+	* Faster 1D convultions (including faster Gaussian filtering)
+	* Location independent tests (run mahotas.tests.run() anywhere)
+	* Add labeled.is_same_labeling function
+	* Post filter SLIC for smoother regions
+	* Fix compilation warnings on several platforms
+
+Version 0.9.7 2013-02-03 by luispedro
+	* Add ``haralick_features`` function
+	* Add ``out`` parameter to morph functions which were missing it
+	* Fix erode() & dilate() with empty structuring elements
+	* Special case binary erosion/dilation in C-Arrays
+	* Fix long-standing warning in TAS on zero inputs
+	* Add ``verbose`` argument to tests.run()
+	* Add ``circle_se`` to ``morph``
+	* Allow ``loc(max|min)`` to take floating point inputs
+	* Add Bernsen local thresholding (``bernsen`` and ``gbernsen`` functions)
+
+Version 0.9.6 2012-12-02 by luispedro
+	* Fix distance() of non-boolean images (issue #24 on github)
+	* Fix encoding issue on PY3 on Mac OS (issue #25 on github)
+	* Add relabel() function
+	* Add remove_regions() function in labeled module
+	* Fix median_filter() on the borders (respect the `mode` argument)
+	* Add mahotas.color module for conversion between colour spaces
+	* Add SLIC Superpixels
+	* Many improvements to the documentation
+
+Version 0.9.5 2012-11-05 by luispedro
+	* Fix compilation in older G++
+	* Faster Otsu thresholding
+	* Python 3 support without 2to3
+	* Add `cdilate` function
+	* Add `subm` function
+	* Add tophat transforms (functions `tophat_close` and `tophat_open`)
+	* Add `mode` argument to euler() (patch by Karol M. Langner)
+	* Add `mode` argument to bwperim() & borders() (patch by Karol M. Langner)
+
+Version 0.9.4 2012-10-10 by luispedro
+	* Fix compilation on 32-bit machines (Patch by Christoph Gohlke)
+
+Version 0.9.3 2012-10-09 by luispedro
+	* Fix interpolation (Report by Christoph Gohlke)
+	* Fix second interpolation bug (Report and patch by Christoph Gohlke)
+	* Update tests to newer numpy
+	* Enhanced debug mode (compile with DEBUG=2 in environment)
+	* Faster morph.dilate()
+	* Add labeled.labeled_max & labeled.labeled_min (This also led to a
+	refactoring of the labeled_* code)
+	* Many documentation fixes
+
+Version 0.9.2 2012-09-01 by luispedro
+	* Fix compilation on Mac OS X 10.8 (reported by Davide Cittaro)
+	* Freeimage fixes on Windows by Christoph Gohlke
+	* Slightly faster _filter implementaiton
+
+Version 0.9.1 2012-08-28 by luispedro
+	* Haar wavelets (forward and inverse transform)
+	* Daubechies wavelets (forward and inverse transform)
+	* Corner case fix in Otsu thresholding
+	* Add soft_threshold function
+	* Memory usage improvements in regmin/regmax/close_holes (first reported
+	as issue #9 by thanasi)
+	* Have polygon.convexhull return an ndarray (instead of a list)
+	* Python 3 support
+
+Version 0.9 2012-07-16 by luispedro
+	* Auto-convert integer to double on gaussian_filter (previously, integer
+	values would result in zero-valued outputs).
+	* Check for integer types in (reg|loc)(max|min)
+	* Use name `out` instead of `output` for output arguments. This matches
+	Numpy better
+	* Switched to MIT License
+
+Version 0.8.1 2012-06-06 by luispedro
+	* Fix gaussian_filter bug when order argument was used (reported by John
+	Mark Agosta)
+	* Add morph.cerode
+	* Improve regmax() & regmin(). Rename previous implementations to locmax()
+	& locmin()
+	* Fix erode() on non-contiguous arrays
+
+Version 0.8 2012-05-07 by luispedro
+	* Move features to submodule
+	* Add morph.open function
+	* Add morph.regmax & morph.regmin functions
+	* Add morph.close function
+	* Fix morph.dilate crash
+
+Version 0.7.3 2012-03-14 by luispedro
+	* Fix installation of test data
+	* Greyscale erosion & dilation
+	* Use imread module (if available)
+	* Add output argument to erode() & dilate()
+	* Add 14th Haralick feature (patch by MattyG) --- currently off by default
+	* Improved zernike interface (zernike_moments)
+	* Add remove_bordering to labeled
+	* Faster implementation of ``bwperim``
+	* Add ``roundness`` shape feature
+
+Version 0.7.2 2012-02-13 by luispedro
+	* Fix type bug in 32 bit machines (Bug report by Lech Wiktor Piotrowski)
+	* Add as_rgb (especially useful for interactive use)
+	* Fix convolve1d
+	* Fix rank_filter
+	* Add Gaussian filtering (from scipy.ndimage)
+
+Version 0.7.1 2012-01-06 by luispedro
+	* Add ``descriptor_only`` argument to surf.descriptors
+	* Specify all function signatures on freeimage.py
+	* Check that convolution arguments have right dimensions (instead of
+	crashing)
+	* Add convolve1d (from scipy.ndimage)
+	* Fix Compilation on Mac OS X
+
+Version 0.7 2011-12-05 by luispedro
+	* Allow specification of centre in Zernike moment computation
+	* Fix Local Binary Patterns
+	* Remove dependency on scipy
+	* Add interpolate module (from scipy.ndimage)
+	* Add labeled_sum & labeled_sizes
+	* gvoronoi no longer depends on scipy
+	* mahotas is importable without scipy
+	* Fix bugs in 2D TAS (reported by Jenn Bakal)
+	* Support for 1-bit monochrome image loading with freeimage
+	* Fix GIL handling on errors (reported by Gareth McCaughan)
+	* Fix freeimage for 64-bit computers
+
+Version 0.6.6 2011-08-08 by luispedro
+	* Fix fill_polygon bug (fix by joferkington)
+	* Fix Haralick feature 6 (fix by Rita Simões)
+	* Implement morph.get_structuring_element for ndim > 2. This implies that
+	functions such as label() now also work in multiple dimensions
+	* Add median filter & rank_filter functions
+	* Add template_match function
+	* Refactor by use of mahotas.internal
+	* Better error message for when the compiled modules cannot be loaded
+	* Update contact email. All docs in numpydoc format now.
+
+Version 0.6.5 2011-05-16 by luispedro
+	* Add `max_points` & `descriptor_only` arguments to mahotas.surf
+	* Fix haralick for 3-D images (bug report by Rita Simões)
+	* Better error messages
+	* Fix hit&miss for non-boolean inputs
+	* Add `label()` function
+
+Version 0.6.4 2011-04-06 by luispedro
+	* Fix bug in ``cwatershed()`` when using return_lines=1
+	* Fix bug in ``cwatershed()`` when using equivalent types for image and
+	markers
+	* Move tests to mahotas.tests and include them in distribution
+	* Include ChangeLog in distribution
+	* Fix compilation on the Mac OS (patch by K-Michael Aye)
+	* Fix compilation warnings on gcc
+
+Version 0.6.3 2011-02-17
+	* Improve ``mahotas.stretch()`` function
+	* Fix corner case in surf (when determinant was zero)
+	* ``threshold`` argument in mahotas.surf
+	* imreadfromblob() & imsavetoblob() functions
+	* ``max_points`` argument for mahotas.surf.interest_points()
+	* Add ``mahotas.labeled.borders`` function
+
+Version 0.6.2 2010-12-20
+	* Fix memory leak in _surf
+	* More robust searching for freeimage
+	* More functions in mahotas.surf() to retrieve intermediate results
+	* Improve compilation on Windows (patches by Christoph Gohlke)
+
+Version 0.6.1 2010-12-13
+	* Release the GIL in morphological functions
+	* Convolution
+	* just_filter option in edge.sobel()
+	* mahotas.labeled functions
+	* SURF local features
+
+Version 0.6 2010-11-22
+	* Improve Local Binary patterns (faster and better interface)
+	* Much faster erode() (10x faster)
+	* Faster dilate() (2x faster)
+	* TAS for 3D images
+	* Haralick for 3D images
+	* Fix mahotas.imread for RGBA images
+
+Version 0.5.3 2010-10-29
+	* Implement mahotas.thin() in C++ for speed
+	* Add np.uint64 support to fullhistogram()
+	* Drop GIL when possible
+	* Add imresize() wrapper around ndimage.zoom
+
+Version 0.5.2 2010-09-13
+	* support Python2.5
+
+Version 0.5.1 2010-09-13
+	* freeimage dependency made optional
+	* bbox() for N>2 dimensions
+	* documentation work
+
+Version 0.5 2010-09-09
+	* Distance transform 
+	* bwperim()
+	* freeimage interface
+	* zernike moment computation
